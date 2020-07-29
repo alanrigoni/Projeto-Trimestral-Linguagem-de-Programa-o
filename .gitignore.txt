@@ -1,0 +1,70 @@
+
+# Criado por https://www.gitignore.io/api/delphi
+# Editar em https://www.gitignore.io/?templates=delphi
+
+### Delphi ###
+# Descomente estes tipos se você quiser um repositório ainda mais limpo. Mas tenha cuidado.
+# Pode causar danos a uma fonte de projeto existente. Leia as explicações abaixo.
+#
+# Os arquivos de recursos são binários contendo manifesto, ícone do projeto e informações da versão.
+# Eles não podem ser vistos como texto ou comparados por ferramentas diff. Considere substituí-los por arquivos .rc.
+# *. res
+# Digite o arquivo da biblioteca (binário). Em versões antigas do Delphi, ele deve ser armazenado.
+# Desde o Delphi 2009, ele é produzido a partir do arquivo .ridl e pode ser ignorado com segurança.
+# *. tlb
+# Arquivo do portfólio de diagramas. Usado pelo editor de diagramas até o Delphi 7.
+# Descomente isto se você não estiver usando diagramas ou usar uma versão mais recente do Delphi.
+# *. ddp
+# Visual LiveBindings file. Adicionado no Delphi XE2.
+# Descomente isto se você não estiver usando o LiveBindings Designer.
+# *. vlb
+# Arquivo de configuração do Deployment Manager para seu projeto. Adicionado no Delphi XE2.
+# Descomente isto se não for desenvolvimento móvel e você não usar o recurso de depuração remota.
+# *. deployproj
+Arquivos de objetos # C ++ produzidos quando a geração de arquivos de saída C / C ++ está configurada.
+# Descomente isto se você não estiver usando objetos externos (biblioteca zlib por exemplo).
+# *. obj
+
+# Binários gerados pelo compilador Delphi (seguro para excluir)
+*.Exe
+* .dll
+* .bpl
+* .bpi
+* .dcp
+*.assim
+* .apk
+* .drc
+*.mapa
+* .dres
+* .rsm
+* .tds
+* .dcu
+* .lib
+*.uma
+* .o
+* .ocx
+
+# Arquivos autogerados Delphi (informações duplicadas)
+* .cfg
+* .hpp
+* Resource.rc
+
+# Arquivos locais Delphi (informações específicas do usuário)
+*.local
+* .identcache
+* .projdata
+* .tvsconfig
+* .dsk
+
+# Histórico de Delphi e backups
+__história/
+__recuperação/
+*. ~ *
+
+# Arquivo de estatísticas da Castalia (desde que o Xalia Castalia é distribuído com o Delphi)
+* .stat
+
+# Pasta de fornecedores gerenciador de dependências chefe https://github.com/HashLoad/boss
+módulos /
+
+# Fim de https://www.gitignore.io/api/delphi

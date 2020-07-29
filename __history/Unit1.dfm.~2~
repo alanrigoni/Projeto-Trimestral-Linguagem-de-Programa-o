@@ -1,0 +1,81 @@
+object Formulario: TFormulario
+  Left = 0
+  Top = 0
+  Caption = '(MEU TEMA)'
+  ClientHeight = 363
+  ClientWidth = 706
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Ed_nomemusica: TEdit
+    Left = 224
+    Top = 56
+    Width = 121
+    Height = 21
+    TabOrder = 0
+  end
+  object Bt_Inserir: TButton
+    Left = 383
+    Top = 144
+    Width = 75
+    Height = 25
+    Caption = 'INSERIR'
+    TabOrder = 1
+    OnClick = Bt_InserirClick
+  end
+  object Bt_Remover: TButton
+    Left = 464
+    Top = 144
+    Width = 75
+    Height = 25
+    Caption = 'REMOVER'
+    TabOrder = 2
+    OnClick = Bt_RemoverClick
+  end
+  object Bt_Atualizar: TButton
+    Left = 545
+    Top = 144
+    Width = 75
+    Height = 25
+    Caption = 'ATUALIZAR'
+    TabOrder = 3
+    OnClick = Bt_AtualizarClick
+  end
+  object ListBox_Dados: TListBox
+    Left = 104
+    Top = 136
+    Width = 185
+    Height = 153
+    ItemHeight = 13
+    TabOrder = 4
+  end
+  object Ed_artista: TEdit
+    Left = 351
+    Top = 56
+    Width = 121
+    Height = 21
+    TabOrder = 5
+  end
+  object Ed_album: TEdit
+    Left = 478
+    Top = 56
+    Width = 121
+    Height = 21
+    TabOrder = 6
+  end
+  object Bt_Salvar: TButton
+    Left = 464
+    Top = 192
+    Width = 75
+    Height = 25
+    Caption = 'SALVAR'
+    TabOrder = 7
+    OnClick = Bt_SalvarClick
+  end
+end

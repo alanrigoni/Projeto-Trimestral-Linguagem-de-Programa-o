@@ -1,0 +1,110 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TFormulario = class(TForm)
+    Ed_nomemusica: TEdit;
+    Bt_Inserir: TButton;
+    Bt_Remover: TButton;
+    Bt_Atualizar: TButton;
+    ListBox_Dados: TListBox;
+    Ed_artista: TEdit;
+    Ed_album: TEdit;
+    Bt_Salvar: TButton;
+    procedure Bt_InserirClick(Sender: TObject);
+    procedure Bt_RemoverClick(Sender: TObject);
+    procedure Bt_AtualizarClick(Sender: TObject);
+    procedure Bt_SalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+ TMusica = class(TObject)
+    Nome:string;
+    Artista:string;
+    Album:string;
+  end;
+var
+  Formulario: TFormulario;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormulario.Bt_AtualizarClick(Sender: TObject);
+var musica2:TMusica;
+var nome, artista, album: string;
+begin
+  nome:=Ed_nomemusica.Text;
+  artista:=Ed_artista.Text;
+  album:= Ed_album.Text;
+
+  if (nome.Length<>0) and (artista.Length<>0) and (album.Length<>0)  then
+  begin
+    musica2 :=ListBox_Dados.Items.Objects[ListBox_Dados.ItemIndex] as TMusica;
+    musica2.nome:= nome;
+    musica2.artista:= artista;
+    musica2.album:= album;
+    ListBox_Dados.Items[ListBox_Dados.ItemIndex]:= Ed_nomemusica.Text ;
+  end
+  else
+  begin
+    ShowMessage('Preencha todos os campos!');
+  end;
+
+end;
+
+procedure TFormulario.Bt_RemoverClick(Sender: TObject);
+begin
+      ListBox_Dados.DeleteSelected;
+end;
+
+procedure TFormulario.Bt_InserirClick(Sender: TObject);
+var musica:TMusica;
+var nome, artista, album: string;
+begin
+  nome:=Ed_nomemusica.Text;
+  artista:=Ed_artista.Text;
+  album:= Ed_album.Text;
+
+  if (nome.Length<>0) and (artista.Length<>0) and (album.Length<>0)  then
+  begin
+    musica := TMusica.Create;
+    musica.nome := nome;
+    musica.artista := artista;
+    musica.album:= album;
+
+    ListBox_Dados.Items.AddObject(musica.nome, musica);
+  end
+  else
+  begin
+    ShowMessage('Preencha todos os campos!');
+  end;
+
+end;
+
+procedure TFormulario.Bt_SalvarClick(Sender: TObject);
+var arq : TextFile;
+var musica2:TMusica;
+var i: integer;
+begin
+
+      AssignFile(arq, 'tabela_das_musicas.txt');
+      Rewrite(arq);
+      for i:=1 to Pred(ListBox_Dados.Items.Count) do
+      begin
+        musica2:= ListBox_Dados.Items.Objects[i] as TMusica;
+        writeln(arq,'registro ', i,'=', musica2.nome);
+        writeln(arq,'registro ',i,'=', musica2.artista);
+        writeln(arq,'registro ',i,'=',musica2.album);
+      end;
+
+      CloseFile(arq);
+    end;
+end.

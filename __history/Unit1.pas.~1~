@@ -1,0 +1,60 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TFormulario = class(TForm)
+    Ed_Inserir: TEdit;
+    Bt_Inserir: TButton;
+    Bt_Remover: TButton;
+    Bt_Atualizar: TButton;
+    ListBox_Dados: TListBox;
+    Ed_Atualizar: TEdit;
+    procedure Bt_InserirClick(Sender: TObject);
+    procedure Bt_RemoverClick(Sender: TObject);
+    procedure Bt_AtualizarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Formulario: TFormulario;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormulario.Bt_AtualizarClick(Sender: TObject);
+begin
+ListBox_Dados.Items[ListBox_Dados.ItemIndex] := Ed_Atualizar.text;
+end;
+
+
+procedure TFormulario.Bt_InserirClick(Sender: TObject);
+begin
+if Ed_Inserir.Text <> '' then
+  begin
+    ListBox_Dados.Items.add(Ed_Inserir.Text);
+  end
+  else
+  begin
+    ShowMessage('Impossível inserir valor vazio!!! Por favor, forneça algum valor.');
+  end;
+
+end;
+
+
+procedure TFormulario.Bt_RemoverClick(Sender: TObject);
+begin
+ListBox_Dados.Items.Delete(ListBox_Dados.ItemIndex);
+end;
+
+
+
+end.
